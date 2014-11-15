@@ -15,4 +15,5 @@ Installation
 
     git clone git@github.com:rockhyrax/music_cast.git <target directory>
     cd <target directory>
-    bundle install
+    ./bin/bundle install
+    ./bin/rake db:migrate

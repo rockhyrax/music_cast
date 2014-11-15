@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'db/clean', :constraints => {:ip => /127.0.0.1/}
+  get 'db/update', :constraints => {:ip => /127.0.0.1/}
+
+  get 'db/clean' => "db#invalid"
+  get 'db/update' => "db#invalid"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
