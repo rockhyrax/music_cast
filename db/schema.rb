@@ -25,15 +25,6 @@ ActiveRecord::Schema.define(version: 20141115053335) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
-    t.integer  "genre_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "artists", ["genre_id"], name: "index_artists_on_genre_id"
-
-  create_table "genres", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
