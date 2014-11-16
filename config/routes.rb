@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'cast/cast'
+
+  get 'fetch/artist'
+
+  get 'fetch/album'
+
+  get 'fetch/track'
+
+  get 'fetch/random'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

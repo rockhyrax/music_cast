@@ -30,6 +30,8 @@ namespace :db do
 
         missing = []
 
+        # TODO probably need to use the frame ids
+        #      to get the values I want...
         # These fields are required, and are strings
         [:artist, :album, :title].each do |field|
           value = tag.send(field)
