@@ -10,6 +10,7 @@ $(document).ready(function() {
   $("#cast_button").click(function() {
     chrome.cast.requestSession(onRequestSessionSuccess, onLaunchError);
   });
+  $("#play_button").click(playRandom);
 });
 
 var session = null;
@@ -26,6 +27,19 @@ function sessionListener(e) {
   }
 }
 
+function playRandom() {
+  var mediaInfo = new chrome.cast.media.MediaInfo("http://" + hostname + "/fetch/random", "audio/mpeg");
+	var request = new chrome.cast.media.LoadRequest(mediaInfo);
+	session.loadMedia(request,
+	  onMediaDiscovered.bind(this, 'loadMedia'),
+    onMediaError);
+}
+
+var currentMedia = null;
+function onMediaDiscovered(how, media) {
+  currentMedia = media;
+}
+
 function receiverListener(e) {
   if( e === chrome.cast.ReceiverAvailability.AVAILABLE) {
       console.log("Got listener");
@@ -37,11 +51,15 @@ function onInitSuccess() {
 }
 
 function onInitError(e) {
-  console.log("Init failed: " + e.description);
+  console.log("Init failed: " + e.code + ":" + e.description);
 }
 
 function onLaunchError(e) {
-  console.log("Launch failed: " + e.description);
+  console.log("Launch failed: " + e.code + ":" + e.description);
+}
+
+function onMediaError(e) {
+  console.log("Media failed: " + e.code + ":" + e.description);
 }
 
 function initializeCastApi() {

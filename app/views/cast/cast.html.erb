@@ -1,7 +1,11 @@
 <% content_for :head do %>
+   <script type="text/javascript">var hostname = "<%= @hostname %>";</script>
    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
 <% end %>
 
 <h1>Cast#cast</h1>
 <p>Find me in app/views/cast/cast.html.erb</p>
-<button id="cast_button">Click to cast</button>
+<div>
+  <button id="play_button">Click to play</button>
+  <button id="cast_button">Click to cast</button>
+</div>
