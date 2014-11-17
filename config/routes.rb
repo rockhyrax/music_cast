@@ -2,12 +2,11 @@ Rails.application.routes.draw do
 
   get 'cast/cast'
 
-  get 'fetch/artist'
-
-  get 'fetch/album'
+  get 'fetch/artists'
+  get 'fetch/albums'
+  get 'fetch/tracks'
 
   get 'fetch/track'
-
   get 'fetch/random'
 
   # The priority is based upon order of creation: first created -> highest priority.
