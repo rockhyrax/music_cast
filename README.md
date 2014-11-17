@@ -24,5 +24,7 @@ Setup
 =====
 
 To populate the database with information about music files in a directory, run:
+
     ./bin/rake db:update MUSIC_CAST_DIR=<music_directory>
+
 This can be run multiple times, either to pull in a new directory, or to look for new files in the same directory.
